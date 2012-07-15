@@ -2,11 +2,13 @@
   "name": "豆瓣Spotify助手",
   "version": "1.8",
   "description": "帮你从豆瓣专辑转到Spotify收听,是时候清理你的想听清单啦",
+  "manifest_version": 2,
   "browser_action": {
       "default_icon": "spotify_16.png",
       "popup": "popup.html",
       "icons": ["spotify_16.png"]
   },
+  "content_security_policy": "script-src 'self'; object-src 'self'",
   "permissions": [
       "http://music.douban.com/people/*/do*",
       "http://music.douban.com/people/*/wish*",
