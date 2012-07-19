@@ -1,6 +1,6 @@
 {
   "name": "豆瓣Spotify助手",
-  "version": "1.9",
+  "version": "1.10",
   "description": "帮你从豆瓣专辑转到Spotify收听,是时候清理你的想听清单啦",
   "manifest_version": 2,
   "browser_action": {
