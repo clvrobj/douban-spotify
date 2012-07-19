@@ -5,29 +5,39 @@
   "manifest_version": 2,
   "browser_action": {
       "default_icon": "spotify_16.png",
-      "popup": "popup.html",
+      "default_title": "豆瓣Spotify助手",
+      "default_popup": "popup.html",
       "icons": ["spotify_16.png"]
   },
   "content_security_policy": "script-src 'self'; object-src 'self'",
   "permissions": [
-      "http://music.douban.com/people/*/do*",
-      "http://music.douban.com/people/*/wish*",
-      "http://music.douban.com/people/*/collect*",
-      "http://music.douban.com/subject/*/"
+      "http://music.douban.com/*"
   ],
-  "content_scripts": [{
-      "matches": ["http://music.douban.com/people/*/do*",
+  "content_scripts": [
+     {
+      "matches": [
+                  "http://music.douban.com/mine*",
+                  "http://music.douban.com/people/*/do*",
                   "http://music.douban.com/people/*/wish*",
-                  "http://music.douban.com/people/*/collect*"],
+                  "http://music.douban.com/people/*/collect*",
+                  "http://music.douban.com/subject/*/"
+                  ],
+      "css":["doubanspotify.css"]
+     },
+     {
+      "matches": [
+                  "http://music.douban.com/mine?status=*",
+                  "http://music.douban.com/people/*/do*",
+                  "http://music.douban.com/people/*/wish*",
+                  "http://music.douban.com/people/*/collect*"
+                 ],
       "run_at": "document_end",
-      "css":["doubanspotify.css"],
       "js": ["jquery-1.7.1.min.js", "page.js"],
       "all_frames": true
     },
     {
       "matches": ["http://music.douban.com/subject/*/"],
       "run_at": "document_end",
-      "css":["doubanspotify.css"],
       "js": ["jquery-1.7.1.min.js", "subject.js"],
       "all_frames": true
     }],
