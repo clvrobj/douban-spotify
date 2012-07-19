@@ -5,7 +5,7 @@
 #spotify-albums .mover { background-color:#474747; }
 #spotify-albums .mover a:link, #spotify-albums .mover a:visited, #spotify-albums .mover a:hover, #spotify-albums .mover a:active { color:#fff; }
 .item .info .spotify-btn { margin-left:5px; font-size:12px; color:#80B719; cursor:pointer; }
-.item .info .spotify-btn, .aside .spotify-btn { background:url(http://otho.douban.com/view/photo/photo/-QXSjnd26QFQs0a9qSjVmQ/x1629007843.jpg) no-repeat 0 0; padding-left:18px; }
+.item .info .spotify-btn, .aside .spotify-btn { background:url(http://www.tu265.com:8080/img3/399cd19eb6b8b3d3f72e65c883d5fbfd.png) no-repeat 0 0; padding-left:18px; }
 
 
 .aside #spotify-albums { position:relative; z-index:100; background-color:#fff; border:1px solid #EEE; width:286px;min-height:120px; max-height:210px; padding:10px 12px; margin-bottom:20px; overflow:auto; }
