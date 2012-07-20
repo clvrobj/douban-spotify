@@ -13,6 +13,10 @@
   "permissions": [
       "http://music.douban.com/*"
   ],
+  "options_page": "options.html",
+  "background": {
+    "scripts": ["background.js"]
+  },
   "content_scripts": [
      {
       "matches": [
