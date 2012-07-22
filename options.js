@@ -1,5 +1,6 @@
 $(function () {
       var isOpenSpotifyDirect = localStorage['isOpenSpotifyDirect'];
+      isOpenSpotifyDirect = (!isOpenSpotifyDirect || isOpenSpotifyDirect == 'false') ? false : true;
       if (!isOpenSpotifyDirect) {
           $('#spotify-wrap').attr('checked', true);
       } else {
