@@ -5,7 +5,7 @@ var albumsMenu,
 showAlbumsMenu = function (itemCon) {
     if (!albumsMenu) {
         var menuLeft = $('.grid-view').offset().left + $('.grid-view').width();
-        albumsMenu = $('<div id="spotify-albums"></div>').appendTo('body').css('left', menuLeft);
+        albumsMenu = $('<div id="spotify-items"></div>').appendTo('body').css('left', menuLeft);
     }
     var albums = albumsInfo[$(itemCon).attr('data-q')];
     // add albums
@@ -13,7 +13,7 @@ showAlbumsMenu = function (itemCon) {
     $.each(albums, function (idx, album) {
                var link = isOpenSpotifyDirect ? album.href : 'http://open.spotify.com/album/'.concat(album.href.split(':')[2]),
                target = isOpenSpotifyDirect ? '' : '_blank';
-               $('<div class="spotify-album"><a href="'.concat(link, '" target="', target, '">', album.name, ' - ', album.artists[0].name, '</a></div>'))
+               $('<div class="spotify-item"><a href="'.concat(link, '" target="', target, '">', album.name, ' - ', album.artists[0].name, '</a></div>'))
                    .appendTo(albumsMenu).hover(
                        function () {
                            $(this).addClass('mover');

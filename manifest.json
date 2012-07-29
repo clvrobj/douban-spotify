@@ -1,7 +1,7 @@
 {
   "name": "豆瓣Spotify助手",
-  "version": "1.15",
-  "description": "帮你从豆瓣专辑转到Spotify收听,是时候清理你的想听清单啦",
+  "version": "1.16",
+  "description": "在豆瓣上为你开一扇通往Spotify的窗",
   "manifest_version": 2,
   "browser_action": {
       "default_icon": "spotify_16.png",
@@ -24,7 +24,8 @@
                   "http://music.douban.com/people/*/do*",
                   "http://music.douban.com/people/*/wish*",
                   "http://music.douban.com/people/*/collect*",
-                  "http://music.douban.com/subject/*/"
+                  "http://music.douban.com/subject/*/",
+                  "http://douban.fm/mine*"
                   ],
       "css":["doubanspotify.css"]
      },
@@ -44,7 +45,14 @@
       "run_at": "document_end",
       "js": ["jquery-1.7.1.min.js", "subject.js"],
       "all_frames": true
-    }],
+    },
+    {
+      "matches": ["http://douban.fm/mine*"],
+      "run_at": "document_end",
+      "js": ["jquery-1.7.1.min.js", "fm.js"],
+      "all_frames": true
+    }
+  ],
   "icons": {
     "16": "spotify_16.png",
     "48": "spotify_48.png"

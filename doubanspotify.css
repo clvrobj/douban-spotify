@@ -1,11 +1,11 @@
-#spotify-albums { position:absolute; z-index:100; background-color:#fff; border:1px solid #EEE; width:220px;min-height:210px; max-height:280px;padding:10px 12px; overflow:auto; }
-.spotify-album { color:#666; background:transparent; padding:5px; border-bottom:1px solid #EEE; word-break:break-all; }
-.spotify-album a:link, .spotify-album a:visited, .spotify-album a:hover, .spotify-album a:active
+#spotify-items { position:absolute; z-index:100; background-color:#fff; border:1px solid #EEE; width:220px;min-height:210px; max-height:280px;padding:10px 12px; overflow:auto; }
+.spotify-item { color:#666; background:transparent; padding:5px; border-bottom:1px solid #EEE; word-break:break-all; }
+.spotify-item a:link, .spotify-item a:visited, .spotify-item a:hover, .spotify-item a:active
  { color:#666; background-color:transparent; }
-#spotify-albums .mover { background-color:#474747; }
-#spotify-albums .mover a:link, #spotify-albums .mover a:visited, #spotify-albums .mover a:hover, #spotify-albums .mover a:active { color:#fff; }
-.item .info .spotify-btn { margin-left:5px; font-size:12px; color:#80B719; cursor:pointer; }
-.item .info .spotify-btn, .aside .spotify-btn { background:url(http://www.tu265.com:8080/img3/399cd19eb6b8b3d3f72e65c883d5fbfd.png) no-repeat 0 0; padding-left:18px; }
+#spotify-items .mover { background-color:#474747; }
+#spotify-items .mover a:link, #spotify-items .mover a:visited, #spotify-items .mover a:hover, #spotify-items .mover a:active { color:#fff; }
+.spotify-btn { margin-left:5px; font-size:12px; color:#80B719; cursor:pointer; }
+.spotify-btn, .aside .spotify-btn { background:url(http://www.tu265.com:8080/img3/399cd19eb6b8b3d3f72e65c883d5fbfd.png) no-repeat 0 0; padding-left:18px; }
 
 
-.aside #spotify-albums { position:relative; z-index:100; background-color:#fff; border:1px solid #EEE; width:286px;min-height:120px; max-height:210px; padding:10px 12px; margin-bottom:20px; overflow:auto; }
+.aside #spotify-items { position:relative; z-index:100; background-color:#fff; border:1px solid #EEE; width:286px;min-height:120px; max-height:210px; padding:10px 12px; margin-bottom:20px; overflow:auto; }

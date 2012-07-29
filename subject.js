@@ -2,12 +2,12 @@ var qpath = 'http://ws.spotify.com/search/1/album.json', album = $('h1 span').te
 isOpenSpotifyDirect = null;
 
 var showAlbumsMenu = function (albums) {
-    $('<h2><span class="spotify-btn"></span>'.concat(album, ' on Spotify</h2><div id="spotify-albums"></div>')).prependTo('.aside');
-    var albumsMenu = $('#spotify-albums');
+    $('<h2><span class="spotify-btn"></span>'.concat(album, ' on Spotify</h2><div id="spotify-items"></div>')).prependTo('.aside');
+    var albumsMenu = $('#spotify-items');
     $.each(albums, function (idx, album) {
                var link = isOpenSpotifyDirect ? album.href : 'http://open.spotify.com/album/'.concat(album.href.split(':')[2]),
                target = isOpenSpotifyDirect ? '' : '_blank';
-               $('<div class="spotify-album"><a href="'.concat(link, '" target="', target, '">', album.name, ' - ', album.artists[0].name, '</a></div>'))
+               $('<div class="spotify-item"><a href="'.concat(link, '" target="', target, '">', album.name, ' - ', album.artists[0].name, '</a></div>'))
                    .appendTo(albumsMenu).hover(
                        function () {
                            $(this).addClass('mover');
