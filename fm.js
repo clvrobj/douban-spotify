@@ -12,7 +12,7 @@ showSpotifyMenu = function (con) {
     $.each(tracks, function (idx, track) {
                var link = isOpenSpotifyDirect ? track.href : 'http://open.spotify.com/track/'.concat(track.href.split(':')[2]),
                target = isOpenSpotifyDirect ? '' : '_blank';
-               $('<div class="spotify-item"><a href="'.concat(link, '" target="', target, '">', track.name, ' - ', track.artists[0].name, '</a></div>'))
+               $('<a class="spotify-item" href="'.concat(link, '" target="', target, '"><span>', track.name, ' - ', track.artists[0].name, '</span></a>'))
                    .appendTo(spotifyMenu).hover(
                        function () {
                            $(this).addClass('mover');

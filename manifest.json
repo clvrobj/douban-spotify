@@ -1,6 +1,6 @@
 {
   "name": "豆瓣Spotify助手",
-  "version": "1.17",
+  "version": "1.18",
   "description": "在豆瓣上为你开一扇通往Spotify的窗",
   "manifest_version": 2,
   "browser_action": {
@@ -25,6 +25,8 @@
                   "http://music.douban.com/people/*/wish*",
                   "http://music.douban.com/people/*/collect*",
                   "http://music.douban.com/subject/*/",
+                  "http://music.douban.com/tag/*",
+                  "http://music.douban.com/doulist/*",
                   "http://douban.fm/mine*"
                   ],
       "css":["doubanspotify.css"]
@@ -37,21 +39,33 @@
                   "http://music.douban.com/people/*/collect*"
                  ],
       "run_at": "document_end",
-      "js": ["jquery-1.7.1.min.js", "page.js"],
+      "js": ["jquery-1.7.1.min.js", "utils.js", "page.js"],
       "all_frames": true
-    },
-    {
-      "matches": ["http://music.douban.com/subject/*/"],
+     },
+     {
+      "matches": ["http://music.douban.com/tag/*"],
       "run_at": "document_end",
-      "js": ["jquery-1.7.1.min.js", "subject.js"],
+      "js": ["jquery-1.7.1.min.js", "utils.js", "tag.js"],
       "all_frames": true
-    },
-    {
-      "matches": ["http://douban.fm/mine*"],
+     },
+     {
+      "matches": ["http://music.douban.com/doulist/*"],
       "run_at": "document_end",
-      "js": ["jquery-1.7.1.min.js", "fm.js"],
+      "js": ["jquery-1.7.1.min.js", "utils.js", "doulist.js"],
       "all_frames": true
-    }
+     },
+     {
+       "matches": ["http://music.douban.com/subject/*/"],
+       "run_at": "document_end",
+       "js": ["jquery-1.7.1.min.js", "subject.js"],
+       "all_frames": true
+     },
+     {
+       "matches": ["http://douban.fm/mine*"],
+       "run_at": "document_end",
+       "js": ["jquery-1.7.1.min.js", "fm.js"],
+       "all_frames": true
+     }
   ],
   "icons": {
     "16": "spotify_16.png",

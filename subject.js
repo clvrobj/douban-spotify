@@ -1,4 +1,5 @@
-var qpath = 'http://ws.spotify.com/search/1/album.json', album = $('h1 span').text(),
+var qpath = 'http://ws.spotify.com/search/1/album.json',
+album = $('h1 span').text(), artist = $('#info span:first a').text(),
 isOpenSpotifyDirect = null;
 
 var showAlbumsMenu = function (albums) {
@@ -7,7 +8,7 @@ var showAlbumsMenu = function (albums) {
     $.each(albums, function (idx, album) {
                var link = isOpenSpotifyDirect ? album.href : 'http://open.spotify.com/album/'.concat(album.href.split(':')[2]),
                target = isOpenSpotifyDirect ? '' : '_blank';
-               $('<div class="spotify-item"><a href="'.concat(link, '" target="', target, '">', album.name, ' - ', album.artists[0].name, '</a></div>'))
+               $('<a class="spotify-item" href="'.concat(link, '" target="', target, '"><span>', album.name, ' - ', album.artists[0].name, '</span></a>'))
                    .appendTo(albumsMenu).hover(
                        function () {
                            $(this).addClass('mover');
@@ -23,7 +24,7 @@ chrome.extension.sendRequest({method:"getLocalStorage", key:"isOpenSpotifyDirect
                                  isOpenSpotifyDirect = (response.data == 'false') ? false : true;
                                  $.ajax({url:qpath, 
                                          crossDomain:true,
-                                         data:{q:album},
+                                         data:{q:album.concat(' artist:', artist)},
                                          success:function (ret) {
                                              if (ret.info.num_results && ret.info.num_results > 0) {
                                                  var q = ret.info.query;

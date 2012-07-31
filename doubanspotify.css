@@ -1,9 +1,9 @@
-#spotify-items { position:absolute; z-index:100; background-color:#fff; border:1px solid #EEE; width:220px;min-height:210px; max-height:280px;padding:10px 12px; overflow:auto; }
-.spotify-item { color:#666; background:transparent; padding:5px; border-bottom:1px solid #EEE; word-break:break-all; }
-.spotify-item a:link, .spotify-item a:visited, .spotify-item a:hover, .spotify-item a:active
+#spotify-items { position:absolute; z-index:100; background-color:#fff; border:1px solid #EEE; width:220px;min-height:170px; max-height:280px;padding:10px 12px; overflow:auto; }
+.spotify-item { display:block; color:#666; background:transparent; padding:5px; border-bottom:1px solid #EEE; word-break:break-all; }
+.spotify-item:link, .spotify-item:visited, .spotify-item:hover, .spotify-item:active
  { color:#666; background-color:transparent; }
 #spotify-items .mover { background-color:#474747; }
-#spotify-items .mover a:link, #spotify-items .mover a:visited, #spotify-items .mover a:hover, #spotify-items .mover a:active { color:#fff; }
+#spotify-items .mover:link, #spotify-items .mover:visited, #spotify-items .mover:hover, #spotify-items .mover:active { color:#fff; }
 .spotify-btn { margin-left:5px; font-size:12px; color:#80B719; cursor:pointer; }
 .spotify-btn, .aside .spotify-btn { background:url(http://www.tu265.com:8080/img3/399cd19eb6b8b3d3f72e65c883d5fbfd.png) no-repeat 0 0; padding-left:18px; }
 

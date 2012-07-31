@@ -2,13 +2,13 @@ var qpath = 'http://ws.spotify.com/search/1/album.json', albumsInfo = {},
 isOpenSpotifyDirect = null;
 
 var spotifyPage = function () {
-    var subjectsCon = $('.grid-view'),
+    var subjectsCon = $('.article'),
     menuLeft = subjectsCon.offset().left + subjectsCon.width();
-    $('.item').each(
+    $('.doulist_item').each(
         function (index) {
-            var itemCon = $(this), album = $(this).find('.title>a>em').text(),
-            infos = $(this).find('.intro').text().split('/'),
-            artist = infos[infos.length - 1].replace(' ', '');;
+            var itemCon = $(this), album = $(this).find('.pl2>a').text(),
+            info = $(this).find('p.pl').text().match('^表演者 : (.+)出版者 :.+$'),
+            artist = (info && info.length > 1) ? info[1] : '';
             $.ajax({url:qpath, 
                     crossDomain:true,
                     data:{q:album.concat(' artist:', artist)},
@@ -16,7 +16,7 @@ var spotifyPage = function () {
                         if (ret.info.num_results && ret.info.num_results > 0) {
                             var q = ret.info.query;
                             albumsInfo[q] = ret.albums;
-                            addSpotifyBtn(itemCon.find('.title'), q, menuLeft);
+                            addSpotifyBtn(itemCon.find('.pl2'), q, menuLeft);
                         }
                     }
                    });
