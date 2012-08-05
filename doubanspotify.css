@@ -5,7 +5,7 @@
 #spotify-items .mover { background-color:#474747; }
 #spotify-items .mover:link, #spotify-items .mover:visited, #spotify-items .mover:hover, #spotify-items .mover:active { color:#fff; }
 .spotify-btn { margin-left:5px; font-size:12px; color:#80B719; cursor:pointer; }
-.spotify-btn, .aside .spotify-btn { background:url(http://www.tu265.com:8080/img3/399cd19eb6b8b3d3f72e65c883d5fbfd.png) no-repeat 0 0; padding-left:18px; }
+.spotify-btn, .aside .spotify-btn { background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAbZJREFUeNrEU0tOAkEQfQUEEBCB4A800YioMS7QRIl7XRg3HsCDeAKXHkKO4EoXblyoGxJiIjESVNBAUFD5Kplpu6dnYIgBl3ZS0zVV9V59uhv470X6bonv05bdhUOyIDYIwFQkvxs4uDxmZ/xXten2IQ5ObO96g5Goc2DG+7tW7PTkM8HVGS51g8DDMwetzm9cnLeQvlbwXmL4rDDN6fUTfKOEpXUrQnMWiFiBMRM4xKdYauIlRxgJA1MrDK4R6Wx8ANUy4TmnwOplRucaxmaeRbsNTEYZ8mlCNkWolaXT7QcCISC8wLQYM8Zm7k9R5O70MEwvS6BY9XdO3uz6zauHQFX1gQSA1zzh7ZlPnVfscAHBadbx9yVgrFucx89g52UT178a0tbx9yOAKSB3QyhkSLNNRBjm46zHP5DgIUl4TFHHLHSRfXHzN4PFgCptVGof8id/K8GrOwwbe7LxYkbaRIyINdJZdQKn3UWKSrRWKZHDMwb4poAmn3y9Spo+PA68FYhfMKoW0jgqP+FKHJBRp5vLrC7Dpjfy6ylwqXLJ6tIhEK0M6dfT8QfBl+iES1Oc/I8AAwBgppjfC1xN3QAAAABJRU5ErkJggg==) no-repeat 0 0; padding-left:18px; }
 
 
 .aside #spotify-items { position:relative; z-index:100; background-color:#fff; border:1px solid #EEE; width:286px;min-height:120px; max-height:210px; padding:10px 12px; margin-bottom:20px; overflow:auto; }
