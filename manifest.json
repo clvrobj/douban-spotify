@@ -1,7 +1,7 @@
 {
   "name": "豆瓣Spotify助手",
-  "version": "1.19",
-  "description": "在豆瓣上为你开一扇通往Spotify的窗",
+  "version": "1.22",
+  "description": "在豆瓣上开一扇通往Spotify的窗",
   "manifest_version": 2,
   "browser_action": {
       "default_icon": "spotify_16.png",
@@ -27,6 +27,9 @@
                   "http://music.douban.com/subject/*/",
                   "http://music.douban.com/tag/*",
                   "http://music.douban.com/doulist/*",
+                  "http://music.douban.com/search/*",
+                  "http://music.douban.com/subject_search*",
+                  "http://music.douban.com/recommended*",
                   "http://douban.fm/mine*"
                   ],
       "css":["doubanspotify.css"]
@@ -64,6 +67,16 @@
        "matches": ["http://douban.fm/mine*"],
        "run_at": "document_end",
        "js": ["jquery-1.7.1.min.js", "fm.js"],
+       "all_frames": true
+     },
+     {
+       "matches": [
+                  "http://music.douban.com/search/*",
+                  "http://music.douban.com/subject_search*",
+                  "http://music.douban.com/recommended*"
+                  ],
+       "run_at": "document_end",
+       "js": ["jquery-1.7.1.min.js", "utils.js", "search_page.js"],
        "all_frames": true
      }
   ],
