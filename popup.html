@@ -7,9 +7,13 @@
     a:link, a:visited, a:hover, a:active { text-decoration:none; }
     a:visited,a:visited{ color:#406e8d; }
     a:link:hover, a:active:hover, a:visited:hover { background-color:#e0f2c2; color:#518300; }
+    a#open-options { float:right; margin:0 5px }
   </style>
+  <script src="/jquery-1.7.1.min.js" type="text/javascript"></script>
+  <script src="/popup.js" type="text/javascript"></script>
 </head>
 <body>
   <h1><span class="spotify-btn"></span><span style="color:#1B9336">豆瓣</span> <span style="color:#4DA400">Spotify</span> 助手</h1>
-  <span>我会帮你从豆瓣专辑转到Spotify收听，快到你的"<a target="_blank" href="http://music.douban.com/mine?status=wish">想听</a>"、"<a target="_blank" href="http://music.douban.com/mine?status=do">在听</a>"和"<a target="_blank" href="http://music.douban.com/mine?status=collect">听过</a>"页面 / 任意专辑页面 / <a target="_blank" href="http://douban.fm/mine?type=liked">豆瓣电台红心列表</a> 瞧瞧吧~</span>
+  <div>我会帮你从豆瓣专辑转到Spotify收听，快到你的"<a target="_blank" href="http://music.douban.com/mine?status=wish">想听</a>"、"<a target="_blank" href="http://music.douban.com/mine?status=do">在听</a>"和"<a target="_blank" href="http://music.douban.com/mine?status=collect">听过</a>"页面 / 任意专辑页面 / <a target="_blank" href="http://douban.fm/mine?type=liked">电台红心列表</a> 瞧瞧吧~</div>
+  <a id="open-options" href="#">选项</a>
 </body>
