@@ -3,12 +3,12 @@ isOpenSpotifyDirect = null;
 
 var spotifyPage = function () {
     var subjectsCon = $('.article'),
-    menuLeft = subjectsCon.offset().left + subjectsCon.width();
-    $('.item').each(
+    menuLeft = subjectsCon.offset().left + subjectsCon.width() + 10;
+    $('.status-item[data-target-type=music]').each(
         function (index) {
-            var itemCon = $(this), album = $(this).find('.pl2>a').text(),
-            infos = $(this).find('.pl').eq(0).text().split('/'),
-            artist = infos[infos.length - 1].replace(' ', '');;
+            var itemCon = $(this), album = $(this).find('p.text>a').eq(1).text(),
+            infos = $(this).find('.description').text().split('/'),
+            artist = infos[0];
             $.ajax({url:qpath,
                     crossDomain:true,
                     data:{q:album.concat(' artist:', artist)},
@@ -16,7 +16,7 @@ var spotifyPage = function () {
                         if (ret.info.num_results && ret.info.num_results > 0) {
                             var q = ret.info.query;
                             albumsInfo[q] = ret.albums;
-                            addSpotifyBtn(itemCon.find('.pl2'), q, menuLeft);
+                            addSpotifyBtn(itemCon.find('p.text'), q, menuLeft);
                         }
                     }
                    });
