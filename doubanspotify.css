@@ -1,5 +1,6 @@
 #spotify-items { position:absolute; z-index:100; background-color:#fff; border:1px solid #EEE; width:220px;min-height:170px; max-height:280px;padding:10px 12px; overflow:auto; }
 .spotify-item { display:block; color:#666; background:transparent; padding:5px; border-bottom:1px solid #EEE; word-break:break-all; }
+.spotify-item:last-child { border-bottom:none; }
 .spotify-item:link, .spotify-item:visited, .spotify-item:hover, .spotify-item:active
  { color:#666; background-color:transparent; }
 #spotify-items .mover { background-color:#474747; }
