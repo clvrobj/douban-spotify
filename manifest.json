@@ -1,6 +1,6 @@
 {
   "name": "豆瓣Spotify助手",
-  "version": "1.22",
+  "version": "1.24",
   "description": "在豆瓣上开一扇通往Spotify的窗",
   "manifest_version": 2,
   "browser_action": {
@@ -33,7 +33,7 @@
                   "http://douban.fm/mine*",
                   "http://www.douban.com/update/*",
                   "http://www.douban.com/people/*/statuses*",
-	          "http://www.douban.com/*"
+                  "http://www.douban.com/*"
                   ],
       "css":["doubanspotify.css"]
      },
@@ -95,7 +95,6 @@
        "js": ["jquery-1.7.1.min.js", "utils.js", "front_guess_page.js"],
        "all_frames": true
      }
-
   ],
   "icons": {
     "16": "spotify_16.png",

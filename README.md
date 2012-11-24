@@ -8,3 +8,4 @@ douban-spotify
 ##Contributors:
 * [clvrobj](https://github.com/clvrobj)
 * [seansay](https://github.com/seansay)
+* [cnborn](https://github.com/cnborn)
