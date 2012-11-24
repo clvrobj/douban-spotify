@@ -32,7 +32,8 @@
                   "http://music.douban.com/recommended*",
                   "http://douban.fm/mine*",
                   "http://www.douban.com/update/*",
-                  "http://www.douban.com/people/*/statuses*"
+                  "http://www.douban.com/people/*/statuses*",
+	          "http://www.douban.com/*"
                   ],
       "css":["doubanspotify.css"]
      },
@@ -87,7 +88,14 @@
        "run_at": "document_end",
        "js": ["jquery-1.7.1.min.js", "utils.js", "update_page.js"],
        "all_frames": true
+     },
+     {
+       "matches": ["http://www.douban.com/*"],
+       "run_at": "document_end",
+       "js": ["jquery-1.7.1.min.js", "utils.js", "front_guess_page.js"],
+       "all_frames": true
      }
+
   ],
   "icons": {
     "16": "spotify_16.png",
