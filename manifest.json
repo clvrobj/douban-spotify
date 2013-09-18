@@ -85,7 +85,8 @@
        "all_frames": true
      },
      {
-       "matches": ["http://www.douban.com/update/*",
+       "matches": ["http://www.douban.com/",
+                   "http://www.douban.com/?p=*",
                    "http://www.douban.com/people/*/statuses*"],
        "run_at": "document_end",
        "js": ["jquery-1.7.1.min.js", "utils.js", "update_page.js"],
@@ -97,12 +98,12 @@
        "js": ["jquery-1.7.1.min.js", "utils.js", "omni_search_page.js"],
        "all_frames": true
      },
-     {
-       "matches": ["http://www.douban.com/"],
-       "run_at": "document_end",
-       "js": ["jquery-1.7.1.min.js", "utils.js", "front_guess_page.js"],
-       "all_frames": true
-     },
+     // {
+     //   "matches": ["http://www.douban.com/"],
+     //   "run_at": "document_end",
+     //   "js": ["jquery-1.7.1.min.js", "utils.js", "front_guess_page.js"],
+     //   "all_frames": true
+     // },
      {
        "matches": ["http://www.rdio.com/*"],
        "run_at": "document_end",

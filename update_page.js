@@ -6,9 +6,8 @@ var spotifyPage = function () {
     menuLeft = subjectsCon.offset().left + subjectsCon.width() + 10;
     $('.status-item[data-target-type=music]').each(
         function (index) {
-            var itemCon = $(this), album = $(this).find('p.text>a').eq(1).text(),
-            infos = $(this).find('.description').text().split('/'),
-            artist = infos[0];
+            var itemCon = $(this), album = $(this).find('.title>a').text(),
+            artist = $(this).find('.info span').eq(1).text();
             $.ajax({url:qpath,
                     crossDomain:true,
                     data:{q:album.concat(' artist:', artist)},
@@ -16,7 +15,7 @@ var spotifyPage = function () {
                         if (ret.info.num_results && ret.info.num_results > 0) {
                             var q = ret.info.query;
                             albumsInfo[q] = ret.albums;
-                            addSpotifyBtn(itemCon.find('p.text'), q, menuLeft);
+                            addSpotifyBtn(itemCon.find('.title'), q, menuLeft);
                         }
                     }
                    });
