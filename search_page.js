@@ -16,7 +16,7 @@ var spotifyPage = function () {
                         if (ret.info.num_results && ret.info.num_results > 0) {
                             var q = ret.info.query;
                             albumsInfo[q] = ret.albums;
-                            addSpotifyBtn(itemCon.find('.pl2'), q, menuLeft);
+                            addSpotifyBtn(itemCon.find('.pl2 a').first(), q, menuLeft);
                         }
                     }
                    });
