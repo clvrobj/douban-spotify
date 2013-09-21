@@ -1,6 +1,22 @@
+var isAlbumSoundtrack = function() {
+  var result;
+
+  $infos = $("#info").find('span.pl');
+  $infos.each(function(index, info){
+    if ($(info).text().indexOf("相关电影") != -1) {
+      result = true;
+    }
+  });
+
+  return result;
+}
+
+
 if (/^http:\/\/music.douban.com\/subject\/\d+\/$/.test(location.href)) {
-    var qpath = 'http://ws.spotify.com/search/1/album.json',
-    album = $('h1 span').text(), artist = $('#info span:first a').text(),
+    var qpath = 'http://ws.spotify.com/search/1/album.json';
+    var album = $('h1 span').text();
+    var artist = $('#info span:first a').text();
+
     isOpenSpotifyDirect = null;
 
     var showAlbumsMenu = function (albums) {
@@ -22,10 +38,18 @@ if (/^http:\/\/music.douban.com\/subject\/\d+\/$/.test(location.href)) {
 
     chrome.extension.sendRequest({method:"getLocalStorage", key:"isOpenSpotifyDirect"},
                                  function(response) {
+                                   // if the album is a movie soundtrack
+                                   // don't include the artist info
+                                     var data;
+                                     if (isAlbumSoundtrack()) {
+                                       data = album;
+                                     } else {
+                                       data = album.concat(' artist:', artist);
+                                     }
                                      isOpenSpotifyDirect = (response.data == 'false') ? false : true;
                                      $.ajax({url:qpath, 
                                              crossDomain:true,
-                                             data:{q:album.concat(' artist:', artist)},
+                                             data:{q: data},
                                              success:function (ret) {
                                                  if (ret.info.num_results && ret.info.num_results > 0) {
                                                      var q = ret.info.query;
