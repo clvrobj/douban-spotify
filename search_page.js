@@ -1,4 +1,4 @@
-var qpath = 'http://ws.spotify.com/search/1/album.json', albumsInfo = {},
+var qpath = 'http://ws.spotify.com/search/1/album.json',
 isOpenSpotifyDirect = null;
 
 var spotifyPage = function () {
@@ -15,8 +15,7 @@ var spotifyPage = function () {
                     success:function (ret) {
                         if (ret.info.num_results && ret.info.num_results > 0) {
                             var q = ret.info.query;
-                            albumsInfo[q] = ret.albums;
-                            addSpotifyBtn(itemCon.find('.pl2 a').first(), q, menuLeft);
+                            addSpotifyBtn(itemCon.find('.pl2 a').first(), q, menuLeft, ret.albums);
                         }
                     }
                    });
