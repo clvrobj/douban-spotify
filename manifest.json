@@ -30,6 +30,7 @@
                   "http://music.douban.com/search/*",
                   "http://music.douban.com/subject_search*",
                   "http://music.douban.com/recommended*",
+                  "http://music.douban.com/programme/*",
                   "http://douban.fm/mine*",
                   "http://www.douban.com/update/*",
                   "http://www.douban.com/people/*/statuses*",
@@ -102,6 +103,12 @@
        "matches": ["http://www.rdio.com/*"],
        "run_at": "document_end",
        "js": ["jquery-1.7.1.min.js", "utils.js", "rdio.js"],
+       "all_frames": true
+     },
+     {
+       "matches": ["http://music.douban.com/programme/*"],
+       "run_at": "document_end",
+       "js": ["jquery-1.7.1.min.js", "utils.js", "programme.js"],
        "all_frames": true
      }
   ],
