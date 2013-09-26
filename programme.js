@@ -1,4 +1,4 @@
-var qpath = 'http://ws.spotify.com/search/1/track.json', albumsInfo = {},
+var qpath = 'http://ws.spotify.com/search/1/track.json',
 isOpenSpotifyDirect = null;
 
 var spotifyPage = function(){
@@ -16,8 +16,7 @@ var spotifyPage = function(){
                 success:function (ret) {
                     if (ret.info.num_results && ret.info.num_results > 0) {
                         var q = ret.info.query;
-                        albumsInfo[q] = ret.tracks;
-                        addSpotifyBtn($(info).find('.song-info'), q, menuLeft);
+                        addSpotifyBtn($(info).find('.song-info'), q, menuLeft, ret.tracks);
                     }
                 }
             });

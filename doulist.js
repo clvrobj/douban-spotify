@@ -1,4 +1,4 @@
-var qpath = 'http://ws.spotify.com/search/1/album.json', albumsInfo = {},
+var qpath = 'http://ws.spotify.com/search/1/album.json',
 isOpenSpotifyDirect = null;
 
 var spotifyPage = function () {
@@ -9,18 +9,17 @@ var spotifyPage = function () {
             var itemCon = $(this), album = $(this).find('.pl2>a').text(),
             info = $(this).find('p.pl').text().match('^表演者 : (.+)出版者 :.+$'),
             artist = (info && info.length > 1) ? info[1] : '';
-            $.ajax({url:qpath, 
+            $.ajax({url:qpath,
                     crossDomain:true,
                     data:{q:album.concat(' artist:', artist)},
                     success:function (ret) {
                         if (ret.info.num_results && ret.info.num_results > 0) {
                             var q = ret.info.query;
-                            albumsInfo[q] = ret.albums;
-                            addSpotifyBtn(itemCon.find('.pl2'), q, menuLeft);
+                            addSpotifyBtn(itemCon.find('.pl2'), q, menuLeft, ret.albums);
                         }
                     }
                    });
-        });    
+        });
 };
 
 chrome.extension.sendRequest({method:"getLocalStorage", key:"isOpenSpotifyDirect"},

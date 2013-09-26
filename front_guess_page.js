@@ -1,5 +1,5 @@
 var qpath = 'http://ws.spotify.com/search/1/album.json',
-albumsInfo = {}, isOpenSpotifyDirect = null;
+isOpenSpotifyDirect = null;
 
 var spotifyPage = function () {
     var subjectsCon = $('.guess3-list'),
@@ -15,8 +15,7 @@ var spotifyPage = function () {
                     success:function (ret) {
                         if (ret.info.num_results && ret.info.num_results > 0) {
                             var q = ret.info.query;
-                            albumsInfo[q] = ret.albums;
-                            addSpotifyBtn(itemCon.find('div.rating'), q, menuLeft);
+                            addSpotifyBtn(itemCon.find('div.rating'), q, menuLeft, ret.albums);
                         }
                     }
                    });
