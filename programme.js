@@ -1,7 +1,9 @@
-var qpath = 'http://ws.spotify.com/search/1/track.json', tracksInfo = {},
+var qpath = 'http://ws.spotify.com/search/1/track.json', albumsInfo = {},
 isOpenSpotifyDirect = null;
 
 var spotifyPage = function(){
+    var subjectsCon = $('#songlist-wrapper')
+    , menuLeft = subjectsCon.offset().left + subjectsCon.width();
     $('.song-item-wrapper').each(
         function(){
             var info = $(this).children('div')[0];
@@ -12,11 +14,10 @@ var spotifyPage = function(){
                 crossDomain:true,
                 data:{q: name + ' ' + artist},
                 success:function (ret) {
-                    console.log(ret);
                     if (ret.info.num_results && ret.info.num_results > 0) {
                         var q = ret.info.query;
-                        tracksInfo[q] = ret.tracks;
-                        addSpotifyBtn($(info).find('.song-info'), q);
+                        albumsInfo[q] = ret.tracks;
+                        addSpotifyBtn($(info).find('.song-info'), q, menuLeft);
                     }
                 }
             });
