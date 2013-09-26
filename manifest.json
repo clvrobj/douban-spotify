@@ -1,6 +1,6 @@
 {
   "name": "豆瓣Spotify助手",
-  "version": "1.26",
+  "version": "1.28",
   "description": "在豆瓣上开一扇通往Spotify的窗",
   "manifest_version": 2,
   "browser_action": {
@@ -72,7 +72,7 @@
      {
        "matches": ["http://douban.fm/mine*"],
        "run_at": "document_end",
-       "js": ["jquery-1.7.1.min.js", "fm.js"],
+       "js": ["jquery-1.7.1.min.js", "utils.js", "fm.js"],
        "all_frames": true
      },
      {
