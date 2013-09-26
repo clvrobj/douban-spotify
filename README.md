@@ -9,3 +9,4 @@ douban-spotify
 * [clvrobj](https://github.com/clvrobj)
 * [seansay](https://github.com/seansay)
 * [cnborn](https://github.com/cnborn)
+* [fakelbst](https://github.com/fakelbst)
