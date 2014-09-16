@@ -6,8 +6,8 @@ var spotifyPage = function () {
     menuLeft = subjectsCon.offset().left + subjectsCon.width();
     $('.doulist_item').each(
         function (index) {
-            var itemCon = $(this), album = $(this).find('.pl2>a').text(),
-            info = $(this).find('p.pl').text().match('^表演者 : (.+)出版者 :.+$'),
+            var itemCon = $(this), album = $(this).find('.pl2>a').eq(0).text().trim(),
+            info = $(this).find('p.pl').text().trim().match('^表演者 : (.+)'),
             artist = (info && info.length > 1) ? info[1] : '';
             $.ajax({url:qpath,
                     crossDomain:true,
