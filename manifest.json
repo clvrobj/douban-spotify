@@ -11,7 +11,8 @@
   },
   "content_security_policy": "script-src 'self'; object-src 'self'",
   "permissions": [
-      "http://music.douban.com/*"
+      "http://music.douban.com/*",
+      "https://music.douban.com/*"
   ],
   "options_page": "options.html",
   "background": {
@@ -20,51 +21,51 @@
   "content_scripts": [
      {
       "matches": [
-                  "http://music.douban.com/mine*",
-                  "http://music.douban.com/people/*/do*",
-                  "http://music.douban.com/people/*/wish*",
-                  "http://music.douban.com/people/*/collect*",
-                  "http://music.douban.com/subject/*",
-                  "http://music.douban.com/tag/*",
-                  "http://music.douban.com/doulist/*",
-                  "http://music.douban.com/search/*",
-                  "http://music.douban.com/subject_search*",
-                  "http://music.douban.com/recommended*",
-                  "http://music.douban.com/programme/*",
+                  "*://music.douban.com/mine*",
+                  "*://music.douban.com/people/*/do*",
+                  "*://music.douban.com/people/*/wish*",
+                  "*://music.douban.com/people/*/collect*",
+                  "*://music.douban.com/subject/*",
+                  "*://music.douban.com/tag/*",
+                  "*://music.douban.com/doulist/*",
+                  "*://music.douban.com/search/*",
+                  "*://music.douban.com/subject_search*",
+                  "*://music.douban.com/recommended*",
+                  "*://music.douban.com/programme/*",
                   "http://douban.fm/mine*",
-                  "http://www.douban.com/update/*",
-                  "http://www.douban.com/people/*/statuses*",
-                  "http://www.douban.com/search*",
-                  "http://www.douban.com/*",
+                  "*://www.douban.com/update/*",
+                  "*://www.douban.com/people/*/statuses*",
+                  "*://www.douban.com/search*",
+                  "*://www.douban.com/*",
                   "http://www.rdio.com/*"
                   ],
       "css":["doubanspotify.css"]
      },
      {
       "matches": [
-                  "http://music.douban.com/mine?status=*",
-                  "http://music.douban.com/people/*/do*",
-                  "http://music.douban.com/people/*/wish*",
-                  "http://music.douban.com/people/*/collect*"
+                  "*://music.douban.com/mine?status=*",
+                  "*://music.douban.com/people/*/do*",
+                  "*://music.douban.com/people/*/wish*",
+                  "*://music.douban.com/people/*/collect*"
                  ],
       "run_at": "document_end",
       "js": ["jquery-1.7.1.min.js", "utils.js", "page.js"],
       "all_frames": true
      },
      {
-      "matches": ["http://music.douban.com/tag/*"],
+      "matches": ["*://music.douban.com/tag/*"],
       "run_at": "document_end",
       "js": ["jquery-1.7.1.min.js", "utils.js", "tag.js"],
       "all_frames": true
      },
      {
-      "matches": ["http://music.douban.com/doulist/*"],
+      "matches": ["*://music.douban.com/doulist/*"],
       "run_at": "document_end",
       "js": ["jquery-1.7.1.min.js", "utils.js", "doulist.js"],
       "all_frames": true
      },
      {
-       "matches": ["http://music.douban.com/subject/*"],
+       "matches": ["*://music.douban.com/subject/*"],
        "run_at": "document_end",
        "js": ["jquery-1.7.1.min.js", "subject.js"],
        "all_frames": true
@@ -77,24 +78,24 @@
      },
      {
        "matches": [
-                  "http://music.douban.com/search/*",
-                  "http://music.douban.com/subject_search*",
-                  "http://music.douban.com/recommended*"
+                  "*://music.douban.com/search/*",
+                  "*://music.douban.com/subject_search*",
+                  "*://music.douban.com/recommended*"
                   ],
        "run_at": "document_end",
        "js": ["jquery-1.7.1.min.js", "utils.js", "search_page.js"],
        "all_frames": true
      },
      {
-       "matches": ["http://www.douban.com/",
-                   "http://www.douban.com/?p=*",
-                   "http://www.douban.com/people/*/statuses*"],
+       "matches": ["*://www.douban.com/",
+                   "*://www.douban.com/?p=*",
+                   "*://www.douban.com/people/*/statuses*"],
        "run_at": "document_end",
        "js": ["jquery-1.7.1.min.js", "utils.js", "update_page.js"],
        "all_frames": true
      },
      {
-       "matches": ["http://www.douban.com/search*"],
+       "matches": ["*://www.douban.com/search*"],
        "run_at": "document_end",
        "js": ["jquery-1.7.1.min.js", "utils.js", "omni_search_page.js"],
        "all_frames": true
@@ -106,7 +107,7 @@
        "all_frames": true
      },
      {
-       "matches": ["http://music.douban.com/programme/*"],
+       "matches": ["*://music.douban.com/programme/*"],
        "run_at": "document_end",
        "js": ["jquery-1.7.1.min.js", "utils.js", "programme.js"],
        "all_frames": true
