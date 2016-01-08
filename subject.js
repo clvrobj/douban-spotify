@@ -15,7 +15,8 @@ var isAlbumSoundtrack = function() {
 if (/^https?:\/\/music.douban.com\/subject\/\d+\/$/.test(location.href)) {
     var qpath = 'https://ws.spotify.com/search/1/album.json';
     var album = $('h1 span').text();
-    var artist = $('#info span:first a').text();
+    // artist will be in first or 2nd span
+    var artist = $('#info span:first a').text() || $('#info span:eq(2) a').text();
 
     isOpenSpotifyDirect = null;
 
