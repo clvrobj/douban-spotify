@@ -1,6 +1,6 @@
 {
   "name": "豆瓣Spotify助手",
-  "version": "1.29",
+  "version": "1.30",
   "description": "在豆瓣上开一扇通往Spotify的窗",
   "manifest_version": 2,
   "browser_action": {
