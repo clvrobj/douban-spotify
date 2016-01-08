@@ -1,4 +1,4 @@
-var qpath = 'http://ws.spotify.com/search/1/album.json',
+var qpath = 'https://ws.spotify.com/search/1/album.json',
 isOpenSpotifyDirect = null;
 
 var spotifyPage = function () {
@@ -10,7 +10,7 @@ var spotifyPage = function () {
             album = $(this).find('.pl2>a').text().split('/')[0],
             infos = $(this).find('p.pl').text().split('/'),
             artist = infos[infos.length - 1].replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-            $.ajax({url:qpath, 
+            $.ajax({url:qpath,
                     crossDomain:true,
                     data:{q:album.concat(' artist:', artist)},
                     success:function (ret) {

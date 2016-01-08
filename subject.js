@@ -12,8 +12,8 @@ var isAlbumSoundtrack = function() {
 }
 
 
-if (/^http:\/\/music.douban.com\/subject\/\d+\/$/.test(location.href)) {
-    var qpath = 'http://ws.spotify.com/search/1/album.json';
+if (/^https?:\/\/music.douban.com\/subject\/\d+\/$/.test(location.href)) {
+    var qpath = 'https://ws.spotify.com/search/1/album.json';
     var album = $('h1 span').text();
     var artist = $('#info span:first a').text();
 
@@ -47,7 +47,7 @@ if (/^http:\/\/music.douban.com\/subject\/\d+\/$/.test(location.href)) {
                                        data = album.concat(' artist:', artist);
                                      }
                                      isOpenSpotifyDirect = (response.data == 'false') ? false : true;
-                                     $.ajax({url:qpath, 
+                                     $.ajax({url:qpath,
                                              crossDomain:true,
                                              data:{q: data},
                                              success:function (ret) {

@@ -1,4 +1,4 @@
-var qpath = 'http://ws.spotify.com/search/1/track.json',
+var qpath = 'https://ws.spotify.com/search/1/track.json',
 isOpenSpotifyDirect = null;
 
 var spotifyPage = function(){
@@ -10,7 +10,7 @@ var spotifyPage = function(){
             name = $(info).attr('data-title');
             artist = $(info).attr('data-performer');
 
-            $.ajax({url:qpath, 
+            $.ajax({url:qpath,
                 crossDomain:true,
                 data:{q: name + ' ' + artist},
                 success:function (ret) {

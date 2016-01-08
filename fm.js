@@ -1,4 +1,4 @@
-var qpath = 'http://ws.spotify.com/search/1/track.json',
+var qpath = 'https://ws.spotify.com/search/1/track.json',
 isOpenSpotifyDirect = null;
 
 var main = function () {
