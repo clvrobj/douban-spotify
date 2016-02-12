@@ -5,11 +5,12 @@ showItemsMenu = function (con, menuLeft, items) {
     }
     itemsMenu.empty();
     $.each(items, function (idx, item) {
-               var itemInfo = item.href.split(':'),
-               link = isOpenSpotifyDirect ? item.href :
+               var itemInfo = item.uri.split(':'),
+               link = isOpenSpotifyDirect ? item.uri :
                    'http://open.spotify.com/'.concat(itemInfo[1], '/', itemInfo[2]),
                target = isOpenSpotifyDirect ? '' : '_blank';
-               $('<a class="spotify-item" href="'.concat(link, '" target="', target, '"><span>', item.name, ' - ', item.artists[0].name, '</span></a>'))
+               var artist = item.artists ? ' - ' + item.artists[0].name : '';// have artist when search tracks
+               $('<a class="spotify-item" href="'.concat(link, '" target="', target, '"><span>', item.name, artist,  '</span></a>'))
                    .appendTo(itemsMenu).hover(
                        function () {
                            $(this).addClass('mover');

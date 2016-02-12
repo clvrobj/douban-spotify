@@ -1,4 +1,4 @@
-var qpath = 'https://ws.spotify.com/search/1/track.json',
+var qpath = 'https://api.spotify.com/v1/search?type=track',
 isOpenSpotifyDirect = null;
 
 var main = function () {
@@ -12,9 +12,10 @@ var main = function () {
                     crossDomain:true,
                     data:{q:q},
                     success:function (ret) {
-                        if (ret.info.num_results && ret.info.num_results > 0) {
-                            var q = ret.info.query;
-                            addSpotifyBtn(nameCon, q, menuLeft, ret.tracks);
+                        if (ret.tracks.total && ret.tracks.total > 0) {
+                            // var q = ret.info.query;
+                            var q = '';
+                            addSpotifyBtn(nameCon, q, menuLeft, ret.tracks.items);
                         }
                     }
                    });
