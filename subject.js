@@ -11,9 +11,8 @@ var isAlbumSoundtrack = function() {
   return result;
 }
 
-
 if (/^https?:\/\/music.douban.com\/subject\/\d+\/$/.test(location.href)) {
-    var qpath = 'https://ws.spotify.com/search/1/album.json';
+    var qpath = 'https://api.spotify.com/v1/search?type=album';
     var album = $('h1 span').text();
     // artist will be in first or 2nd span
     var artist = $('#info span:first a').text() || $('#info span:eq(2) a').text();
@@ -24,9 +23,9 @@ if (/^https?:\/\/music.douban.com\/subject\/\d+\/$/.test(location.href)) {
         $('<h2><span class="spotify-btn"></span>'.concat(album, ' on Spotify</h2><div id="spotify-items"></div>')).prependTo('.aside');
         var albumsMenu = $('#spotify-items');
         $.each(albums, function (idx, album) {
-                   var link = isOpenSpotifyDirect ? album.href : 'http://open.spotify.com/album/'.concat(album.href.split(':')[2]),
+                   var link = isOpenSpotifyDirect ? album.uri : 'http://open.spotify.com/album/'.concat(album.uri.split(':')[2]),
                    target = isOpenSpotifyDirect ? '' : '_blank';
-                   $('<a class="spotify-item" href="'.concat(link, '" target="', target, '"><span>', album.name, ' - ', album.artists[0].name, '</span></a>'))
+                   $('<a class="spotify-item" href="'.concat(link, '" target="', target, '"><span>', album.name, ' - ', artist, '</span></a>'))
                        .appendTo(albumsMenu).hover(
                            function () {
                                $(this).addClass('mover');
@@ -52,9 +51,9 @@ if (/^https?:\/\/music.douban.com\/subject\/\d+\/$/.test(location.href)) {
                                              crossDomain:true,
                                              data:{q: data},
                                              success:function (ret) {
-                                                 if (ret.info.num_results && ret.info.num_results > 0) {
-                                                     var q = ret.info.query;
-                                                     showAlbumsMenu(ret.albums);
+                                                 if (ret.albums.total && ret.albums.total > 0) {
+                                                     // var q = ret.info.query;
+                                                     showAlbumsMenu(ret.albums.items);
                                                  }
                                              }
                                             });

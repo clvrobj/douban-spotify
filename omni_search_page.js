@@ -1,4 +1,4 @@
-var qpath = 'http://ws.spotify.com/search/1/album.json'
+var qpath = 'https://api.spotify.com/v1/search?type=album'
 , isOpenSpotifyDirect = null;
 
 var spotifyPage = function () {
@@ -16,9 +16,10 @@ var spotifyPage = function () {
                     crossDomain:true,
                     data:{q:albumName.concat(' artist:', artistName)},
                     success:function (ret) {
-                        if (ret.info.num_results && ret.info.num_results > 0) {
-                            var q = ret.info.query;
-                            addSpotifyBtn(itemCon.find('.title h3'), q, menuLeft, ret.albums);
+                        if (ret.albums.total && ret.albums.total > 0) {
+                            // var q = ret.info.query;
+                            var q = '';
+                            addSpotifyBtn(itemCon.find('.title h3'), q, menuLeft, ret.albums.items);
                         }
                     }
                    });

@@ -36,8 +36,7 @@
                   "*://www.douban.com/update/*",
                   "*://www.douban.com/people/*/statuses*",
                   "*://www.douban.com/search*",
-                  "*://www.douban.com/*",
-                  "http://www.rdio.com/*"
+                  "*://www.douban.com/*"
                   ],
       "css":["doubanspotify.css"]
      },
@@ -98,12 +97,6 @@
        "matches": ["*://www.douban.com/search*"],
        "run_at": "document_end",
        "js": ["jquery-1.7.1.min.js", "utils.js", "omni_search_page.js"],
-       "all_frames": true
-     },
-     {
-       "matches": ["http://www.rdio.com/*"],
-       "run_at": "document_end",
-       "js": ["jquery-1.7.1.min.js", "utils.js", "rdio.js"],
        "all_frames": true
      },
      {
