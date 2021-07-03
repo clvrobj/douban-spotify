@@ -1,6 +1,6 @@
 {
-  "name": "豆瓣Spotify助手",
-  "version": "1.32",
+  "name": "Douban-Spotify Assistant (豆瓣 Spotify 助手)",
+  "version": "2.0",
   "description": "在豆瓣上开一扇通往Spotify的窗",
   "manifest_version": 2,
   "browser_action": {
@@ -12,16 +12,18 @@
   "content_security_policy": "script-src 'self'; object-src 'self'",
   "permissions": [
       "http://music.douban.com/*",
-      "https://music.douban.com/*"
+      "https://music.douban.com/*",
+      "identity"
   ],
   "options_page": "options.html",
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["jquery-1.7.1.min.js", "background.js"]
   },
   "content_scripts": [
      {
       "matches": [
                   "*://music.douban.com/mine*",
+                  "*://music.douban.com/people/*/update*",
                   "*://music.douban.com/people/*/do*",
                   "*://music.douban.com/people/*/wish*",
                   "*://music.douban.com/people/*/collect*",
@@ -30,9 +32,8 @@
                   "*://music.douban.com/doulist/*",
                   "*://music.douban.com/search/*",
                   "*://music.douban.com/subject_search*",
+                  "*://search.douban.com/music/subject_search*",
                   "*://music.douban.com/recommended*",
-                  "*://music.douban.com/programme/*",
-                  "http://douban.fm/mine*",
                   "*://www.douban.com/update/*",
                   "*://www.douban.com/people/*/statuses*",
                   "*://www.douban.com/search*",
@@ -42,7 +43,7 @@
      },
      {
       "matches": [
-                  "*://music.douban.com/mine?status=*",
+                  "*://music.douban.com/people/*/update*",
                   "*://music.douban.com/people/*/do*",
                   "*://music.douban.com/people/*/wish*",
                   "*://music.douban.com/people/*/collect*"
@@ -52,37 +53,27 @@
       "all_frames": true
      },
      {
-      "matches": ["*://music.douban.com/tag/*"],
-      "run_at": "document_end",
-      "js": ["jquery-1.7.1.min.js", "utils.js", "tag.js"],
-      "all_frames": true
-     },
-     {
-      "matches": ["*://music.douban.com/doulist/*"],
-      "run_at": "document_end",
-      "js": ["jquery-1.7.1.min.js", "utils.js", "doulist.js"],
-      "all_frames": true
-     },
-     {
        "matches": ["*://music.douban.com/subject/*"],
        "run_at": "document_end",
        "js": ["jquery-1.7.1.min.js", "subject.js"],
        "all_frames": true
      },
      {
-       "matches": ["http://douban.fm/mine*"],
+       "matches": [
+                  "*://music.douban.com/subject_search*",
+                  "*://search.douban.com/music/subject_search*"
+                  ],
        "run_at": "document_end",
-       "js": ["jquery-1.7.1.min.js", "utils.js", "fm.js"],
+       "js": ["jquery-1.7.1.min.js", "utils.js", "search_page.js"],
        "all_frames": true
      },
      {
        "matches": [
-                  "*://music.douban.com/search/*",
-                  "*://music.douban.com/subject_search*",
-                  "*://music.douban.com/recommended*"
+                  "*://music.douban.com/recommended*",
+                  "*://music.douban.com/tag/*"
                   ],
        "run_at": "document_end",
-       "js": ["jquery-1.7.1.min.js", "utils.js", "search_page.js"],
+       "js": ["jquery-1.7.1.min.js", "utils.js", "music_old_list.js"],
        "all_frames": true
      },
      {
@@ -97,12 +88,6 @@
        "matches": ["*://www.douban.com/search*"],
        "run_at": "document_end",
        "js": ["jquery-1.7.1.min.js", "utils.js", "omni_search_page.js"],
-       "all_frames": true
-     },
-     {
-       "matches": ["*://music.douban.com/programme/*"],
-       "run_at": "document_end",
-       "js": ["jquery-1.7.1.min.js", "utils.js", "programme.js"],
        "all_frames": true
      }
   ],
