@@ -1,23 +1,21 @@
 {
-  "name": "Douban-Spotify Assistant (豆瓣 Spotify 助手)",
-  "version": "2.0",
-  "description": "在豆瓣上开一扇通往Spotify的窗",
+  "name": "Douban Music Assistant (豆瓣音乐助手)",
+  "version": "1.0.0",
+  "description": "在豆瓣上开一扇通往音乐的窗",
   "manifest_version": 2,
   "browser_action": {
-      "default_icon": "spotify_16.png",
-      "default_title": "豆瓣Spotify助手",
+      "default_icon": "icon_16.png",
+      "default_title": "Douban Music Assistant (豆瓣音乐助手)",
       "default_popup": "popup.html",
-      "icons": ["spotify_16.png"]
+      "icons": ["icon_16.png"]
   },
   "content_security_policy": "script-src 'self'; object-src 'self'",
   "permissions": [
-      "http://music.douban.com/*",
-      "https://music.douban.com/*",
       "identity"
   ],
   "options_page": "options.html",
   "background": {
-    "scripts": ["jquery-1.7.1.min.js", "background.js"]
+    "scripts": ["jquery-1.7.1.min.js", "config.js", "background.js"]
   },
   "content_scripts": [
      {
@@ -92,7 +90,7 @@
      }
   ],
   "icons": {
-    "16": "spotify_16.png",
-    "48": "spotify_48.png"
+    "16": "icon_16.png",
+    "48": "icon_48.png"
   }
 }

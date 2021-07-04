@@ -1,5 +1,3 @@
-const CLIENT_ID = encodeURIComponent('');
-const EXTENSION_ID = '';
 const RESPONSE_TYPE = encodeURIComponent('token');
 const REDIRECT_URI = encodeURIComponent('https://' + EXTENSION_ID + '.chromiumapp.org/');
 // The search API require the `user-read-private` scope, see https://developer.spotify.com/documentation/general/guides/scopes/
@@ -8,7 +6,9 @@ const SHOW_DIALOG = encodeURIComponent('true');
 let STATE = '';
 let ACCESS_TOKEN = localStorage['spotify_access_token'];
 
-let user_signed_in = localStorage['spotify_signed_in'];
+let isUserSignedIn = function () {
+  return localStorage['spotify_signed_in'] == true;
+};
 
 var createSpotifyEndpoint = function() {
   STATE = encodeURIComponent('meet' + Math.random().toString(36).substring(2, 15));
@@ -37,17 +37,29 @@ var queryAlbum = function(title, cb) {
          });
 };
 
+var saveLoginInfo = function(access_token) {
+  localStorage['spotify_signed_in'] = true;
+  localStorage['spotify_access_token'] = access_token;
+};
+
+var deleteLoginInfo = function () {
+  localStorage['spotify_signed_in'] = false;
+  localStorage['spotify_access_token'] = '';
+};
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.message === 'login') {
-    if (user_signed_in) {
+    if (isUserSignedIn()) {
       console.log("User is already signed in.");
     } else {
+      console.log('User signing in');
       // sign the user in with Spotify
       chrome.identity.launchWebAuthFlow({
         url: createSpotifyEndpoint(),
         interactive: true
       }, function (redirect_url) {
         if (chrome.runtime.lastError) {
+          console.log('Chrome runtime error', chrome.runtime.lastError.message);
           sendResponse({ message: 'fail' });
         } else {
           if (redirect_url.includes('callback?error=access_denied')) {
@@ -60,8 +72,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             if (state === STATE) {
               console.log("SUCCESS")
 
-              localStorage['spotify_signed_in'] = true;
-              localStorage['spotify_access_token'] = ACCESS_TOKEN;
+              saveLoginInfo(ACCESS_TOKEN);
 
               chrome.browserAction.setPopup({ popup: './popup.html' }, () => {
                 sendResponse({ message: 'success' });
@@ -88,12 +99,18 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
             crossDomain:true,
             headers: {"Authorization": "Bearer " + ACCESS_TOKEN},
             data:{q: request.title},
-            success:function (ret) {
+            success: function (ret) {
               sendResponse({
                 albums: ret.albums,
                 isOpenSpotifyDirect: localStorage['isOpenSpotifyDirect']});
-            }
-           });    
+            },
+            error: function (ret) {
+              if (ret.status == 401) {
+                // Token not valid
+                deleteLoginInfo();
+              }
+            },
+           });
   } else {
     sendResponse({}); // snub them.
   }
